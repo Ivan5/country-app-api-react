@@ -31,7 +31,7 @@ const CountrStyled = styled.div`
 function Country({ flag, name, population, region, capital }) {
   return (
     <CountrStyled>
-      <img src={flag} alt="" />
+      <img src={flag} alt="" loading="lazy" />
       <div className="details">
         <h2>{name}</h2>
         <p>

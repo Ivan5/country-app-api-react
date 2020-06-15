@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Country from "./Country";
 
@@ -12,14 +12,35 @@ const CountryListStyled = styled.div`
 `;
 
 function CountryList() {
+  const [countryList, setCountryList] = useState([]);
+
   useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all");
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setCountryList(data);
+      })
+      .catch((err) => {
+        console.log("Hubo un error");
+      });
   }, []);
 
   return (
     <CountryListStyled>
-      <Country flag="" name="" population="" region="" capital="" />
-      <Country flag="" name="" population="" region="" capital="" />
+      {countryList.map(({ name, flag, population, region, capital }) => {
+        return (
+          <Country
+            key="country"
+            flag={flag}
+            name={name}
+            population={population}
+            region={region}
+            capital={capital}
+          />
+        );
+      })}
     </CountryListStyled>
   );
 }
