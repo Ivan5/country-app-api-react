@@ -5,6 +5,7 @@ html {
 :root {
   --black: #111517;
   --white: #fff;
+  --background: #fafafa;
 }
 
 .App {
