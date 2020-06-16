@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Country from "./Country";
+import Search from './Search'
 import { useSelector, useDispatch } from "react-redux";
 
 const CountryListStyled = styled.div`
@@ -48,6 +49,7 @@ function CountryList() {
 
   return (
     <CountryListStyled>
+    <Search />
       {countryList.map(({ id, name, flag, population, region, capital }) => {
         return (
           <Country

@@ -4,7 +4,7 @@ import CountryList from "./components/CountryList";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import Region from "./components/Region";
-import Search from "./components/Search";
+
 
 const initialState = {
   countryList: [],
@@ -44,7 +44,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Region />
-        <Search />
+        
         <CountryList />
       </div>
     </Provider>
