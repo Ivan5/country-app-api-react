@@ -16,13 +16,14 @@ function CountryList() {
   const dispatch = useDispatch();
 
   const countryList = useSelector((state) => {
-    if (state.filterbyName !== "") {
+    if (state.filterbyName.length > 0) {
       return state.filterbyName;
     }
 
-    if (state.filterbyRegion) {
+    if (state.filterbyRegion.length > 0) {
       return state.filterbyRegion;
     }
+
     return state.countryList;
   });
 
