@@ -14,8 +14,19 @@ const CountryListStyled = styled.div`
 
 function CountryList() {
   const dispatch = useDispatch();
-  const countryList = useSelector((state) => state.countryList);
-  console.log("Estado", countryList);
+
+  const countryList = useSelector((state) => {
+    if (state.filterbyName !== "") {
+      return state.filterbyName;
+    }
+
+    if (state.filterbyRegion) {
+      return state.filterbyRegion;
+    }
+    return state.countryList;
+  });
+
+  //console.log("Estado", countryList);
   //const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
