@@ -16,7 +16,7 @@ const SearchStyled = styled.label`
     height: 48;
     line-height: 48px;
     font-size: 0.7em;
-
+    outline: 0;
     &::-webkit-input-placeholder {
       color: red;
     }
